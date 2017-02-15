@@ -1,14 +1,14 @@
 %%
 % 
-
-file = 'CompleteCableTrackModel.ldr';
+function [parts_list, parts_numb] =  count_parts_in_file(parts_list, parts_numb, file)
 
 fid = fopen(file, 'r');
 
-tline = 'A'; 
+if fid == -1
+  return
+end
 
-parts_list = [];
-parts_numb = [];
+tline = 'A'; 
 
 while ischar(tline) % loop through file
   
@@ -45,7 +45,5 @@ while ischar(tline) % loop through file
 end
 
 fclose(fid);
-%%
-disp(sum(parts_numb))
-disp(length(parts_list))
+
 
